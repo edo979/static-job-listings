@@ -1,26 +1,35 @@
 import { useEffect, useState } from 'react'
+import JobList from './components/JobList'
 
 function App() {
   const [jobs, setJobs] = useState([])
 
   useEffect(() => {
     const fetchJobs = async () => {
-      const res = await fetch('data.json')
-      const data = await res.json()
+      try {
+        const res = await fetch('./data.json')
 
-      setJobs(data)
-      console.log('fetched')
+        if (!res.ok) {
+          throw new Error('Network Error!')
+        }
+
+        const data = await res.json()
+        setJobs(data)
+
+        console.log('fetched')
+      } catch (error) {
+        console.log(error)
+      }
     }
 
     fetchJobs()
   }, [])
 
   return (
-    <ul>
-      {jobs.map((job) => (
-        <li key={job.id}>{job.company}</li>
-      ))}
-    </ul>
+    <div>
+      <div>Filter:</div>
+      <JobList jobs={jobs} />
+    </div>
   )
 }
 
