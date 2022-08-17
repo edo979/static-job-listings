@@ -21,6 +21,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 img,
 picture,
 video,
@@ -50,4 +56,13 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+/* 
+  layout
+*/
+.flex {
+  display: flex;
+  align-items: var(--f-align, center);
+  gap: var(--f-gap, 1rem);
 }

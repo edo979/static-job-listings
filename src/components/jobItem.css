@@ -1,3 +1,9 @@
-.job {
-  display: flex;
+.category-list {
+  --f-align: center;
+  --f-gap: 1rem;
+  margin-inline-start: auto;
+}
+
+.category-list_item {
+  outline: 1px solid green;
 }

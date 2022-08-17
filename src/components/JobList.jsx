@@ -5,7 +5,7 @@ function JobList({ jobs }) {
   return (
     <ul className="job-list">
       {jobs.map((job) => (
-        <JobItem data={job} />
+        <JobItem data={job} key={job.id} />
       ))}
     </ul>
   )
