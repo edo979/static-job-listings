@@ -34,7 +34,11 @@ function JobItem({ data }) {
             {featured && <span className="badge badge-dark">Featured</span>}
           </header>
           <main className="job_position">{position}</main>
-          <footer className="job_footer | flex"></footer>
+          <footer className="job_footer | flex">
+            <p>{postedAt}</p>
+            <p>{contract}</p>
+            <p>{location}</p>
+          </footer>
         </section>
 
         <section aria-label="click categories to filter">

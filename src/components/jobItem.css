@@ -1,6 +1,5 @@
 .job {
   --f-justify: space-between;
-  outline: 1px solid red;
 }
 
 .job_info {
@@ -10,7 +9,8 @@
   margin-inline-end: auto;
 }
 
-.job_header {
+.job_header,
+.job_footer {
   --f-direction: row;
   --f-align: center;
   --f-gap: 1rem;
@@ -20,8 +20,4 @@
   --f-align: center;
   --f-gap: 0.5rem;
   margin-inline-start: auto;
-}
-
-.category-list_item {
-  outline: 1px solid green;
 }
