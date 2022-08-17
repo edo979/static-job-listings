@@ -1,5 +1,8 @@
 .job {
-  --f-justify: space-between;
+  --f-direction: column;
+  --f-align: start;
+
+  margin-bottom: 3rem;
 }
 
 .job_info {
@@ -17,7 +20,27 @@
 }
 
 .category-list {
+  --f-direction: row;
   --f-align: center;
   --f-gap: 0.5rem;
-  margin-inline-start: auto;
+  flex-wrap: wrap;
+
+  border-top: 1px solid grey;
+  padding-top: 1rem;
+}
+
+@media (min-width: 50em) {
+  .job {
+    --f-direction: row;
+    --f-justify: space-between;
+    --f-align: center;
+  }
+
+  .category-list {
+    --f-align: center;
+    --f-gap: 0.5rem;
+    margin-inline-start: auto;
+    border-top: none;
+    padding-top: 0;
+  }
 }
