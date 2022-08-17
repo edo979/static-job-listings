@@ -5,12 +5,14 @@
 
 .job_info {
   --f-direction: column;
+  --f-align: start;
   --f-gap: 0;
   margin-inline-end: auto;
 }
 
 .job_header {
   --f-direction: row;
+  --f-align: center;
   --f-gap: 1rem;
 }
 
