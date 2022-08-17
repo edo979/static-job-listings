@@ -63,6 +63,8 @@ h6 {
 */
 .flex {
   display: flex;
+  flex-direction: var(--f-direction, row);
   align-items: var(--f-align, center);
+  justify-content: var(--f-justify, start);
   gap: var(--f-gap, 1rem);
 }

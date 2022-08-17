@@ -1,6 +1,22 @@
+.job {
+  --f-justify: space-between;
+  outline: 1px solid red;
+}
+
+.job_info {
+  --f-direction: column;
+  --f-gap: 0;
+  margin-inline-end: auto;
+}
+
+.job_header {
+  --f-direction: row;
+  --f-gap: 1rem;
+}
+
 .category-list {
   --f-align: center;
-  --f-gap: 1rem;
+  --f-gap: 0.5rem;
   margin-inline-start: auto;
 }
 
