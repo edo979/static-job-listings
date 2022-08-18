@@ -19,9 +19,8 @@ function App() {
 
         const data = await res.json()
         setJobs(data)
-        setFilteredJobs(data)
-
-        console.log('fetched')
+        dispatch({ type: 'INIT', payload: data })
+        //console.log('fetched')
       } catch (error) {
         console.log(error)
       }
@@ -30,47 +29,20 @@ function App() {
     fetchJobs()
   }, [])
 
-  useEffect(() => {
-    if (categories.length > 0) {
-      const filteredjobs = jobs.filter((job) => {
-        const jobCategories = [
-          job.role,
-          job.level,
-          ...job.languages,
-          ...job.tools,
-        ]
-
-        let isIncludeCategory = true
-        for (let i = 0; i < categories.length; i++) {
-          if (jobCategories.includes(categories[i])) {
-            continue
-          } else {
-            isIncludeCategory = false
-            break
-          }
-        }
-
-        return isIncludeCategory
-      })
-
-      setFilteredJobs(filteredjobs)
-    } else {
-      setFilteredJobs([...jobs])
-    }
-  }, [categories])
-
   const [state, dispatch] = useReducer(reducer, initialState)
 
   function reducer(state, action) {
     switch (action.type) {
+      case 'INIT':
+        return { categories: state.categories, filteredJobs: action.payload }
       case 'ADD-CATEGORY':
-        if (categories.includes(action.payload)) {
+        if (state.categories.includes(action.payload)) {
           return state
         } else {
-          return {
-            categories: [...state.categories, action.payload],
-            filteredJobs: state.filteredJobs,
-          }
+          const categories = [...state.categories, action.payload],
+            filteredJobs = filterJobs(categories)
+
+          return { categories, filteredJobs }
         }
 
       default:
@@ -78,13 +50,30 @@ function App() {
     }
   }
 
-  // const addCategory = (category) => {
-  //   if (categories.includes(category)) {
-  //     return
-  //   } else {
-  //     setCategories((prevState) => [...prevState, category])
-  //   }
-  // }
+  function filterJobs(categories) {
+    const filteredjobs = jobs.filter((job) => {
+      const jobCategories = [
+        job.role,
+        job.level,
+        ...job.languages,
+        ...job.tools,
+      ]
+
+      let isIncludeCategory = true
+      for (let i = 0; i < categories.length; i++) {
+        if (jobCategories.includes(categories[i])) {
+          continue
+        } else {
+          isIncludeCategory = false
+          break
+        }
+      }
+
+      return isIncludeCategory
+    })
+
+    return filteredjobs
+  }
 
   const removeCategoryFilters = () => setCategories([])
 
@@ -104,7 +93,7 @@ function App() {
       )}
 
       <JobList
-        jobs={jobsFiltered}
+        jobs={state.filteredJobs}
         onAddCategory={(category) =>
           dispatch({ type: 'ADD-CATEGORY', payload: category })
         }
