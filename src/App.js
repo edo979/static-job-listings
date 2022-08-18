@@ -29,7 +29,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    if (categories) {
+    if (categories.length > 0) {
       const filteredjobs = jobs.filter((job) => {
         const jobCategories = [
           job.role,
@@ -67,13 +67,23 @@ function App() {
 
   const removeCategoryFilters = () => setCategories([])
 
+  const removeCategory = (categoryToRemove) =>
+    setCategories((prevState) =>
+      prevState.filter((category) => category != categoryToRemove)
+    )
+
   return (
     <div>
       {categories.length > 0 && (
         <div>
           <ul>
             {categories.map((category) => (
-              <li key={category}>{category}</li>
+              <li key={category}>
+                <div>
+                  <span>{category}</span>
+                  <button onClick={() => removeCategory(category)}>X</button>
+                </div>
+              </li>
             ))}
           </ul>
           <button onClick={removeCategoryFilters}>Clear</button>
