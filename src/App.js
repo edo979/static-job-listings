@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import JobList from './components/JobList'
 
 function App() {
-  const [jobs, setJobs] = useState([])
+  const [jobs, setJobs] = useState([]),
+    [categories, setCategories] = useState([])
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -25,10 +26,22 @@ function App() {
     fetchJobs()
   }, [])
 
+  const addCategory = (category) => {
+    if (categories.includes(category)) {
+      return
+    } else {
+      setCategories((prevState) => [...prevState, category])
+    }
+  }
+
   return (
     <div>
-      <div>Filter:</div>
-      <JobList jobs={jobs} />
+      <ul>
+        {categories.map((category) => (
+          <li key={category}>{category}</li>
+        ))}
+      </ul>
+      <JobList jobs={jobs} onAddCategory={addCategory} />
     </div>
   )
 }

@@ -1,7 +1,6 @@
 import './jobItem.css'
-function JobItem({ data }) {
+function JobItem({ data, onAddCategory }) {
   const {
-      id,
       company,
       logo,
       featured,
@@ -42,14 +41,15 @@ function JobItem({ data }) {
         </section>
 
         <section aria-label="click categories to filter">
-          <ul
-            className="category-list | flex"
-            role="list"
-            aria-label="categories"
-          >
+          <ul className="category-list | flex" aria-label="categories">
             {categoryList.map((category, i) => (
               <li className="category-list_item" key={i} aria-label="category">
-                <button className="btn btn-category">{category}</button>
+                <button
+                  className="btn btn-category"
+                  onClick={() => onAddCategory(category)}
+                >
+                  {category}
+                </button>
               </li>
             ))}
           </ul>
