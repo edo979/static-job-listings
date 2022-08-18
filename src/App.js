@@ -3,10 +3,8 @@ import JobCategories from './components/JobCategories'
 import JobList from './components/JobList'
 
 function App() {
-  const [jobs, setJobs] = useState([]),
-    [categories, setCategories] = useState([]),
-    [jobsFiltered, setFilteredJobs] = useState([]),
-    initialState = { categories: [], filteredJobs: [] }
+  const initialState = { categories: [], filteredJobs: [], jobs: [] },
+    [state, dispatch] = useReducer(reducer, initialState)
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -18,7 +16,7 @@ function App() {
         }
 
         const data = await res.json()
-        setJobs(data)
+
         dispatch({ type: 'INIT', payload: data })
         //console.log('fetched')
       } catch (error) {
@@ -29,20 +27,30 @@ function App() {
     fetchJobs()
   }, [])
 
-  const [state, dispatch] = useReducer(reducer, initialState)
-
   function reducer(state, action) {
     switch (action.type) {
       case 'INIT':
-        return { categories: state.categories, filteredJobs: action.payload }
+        return {
+          ...state,
+          filteredJobs: [...action.payload],
+          jobs: [...action.payload],
+        }
+
       case 'ADD-CATEGORY':
         if (state.categories.includes(action.payload)) {
           return state
         } else {
           const categories = [...state.categories, action.payload],
-            filteredJobs = filterJobs(categories)
+            filteredJobs = filterJobs(categories, state.jobs)
 
-          return { categories, filteredJobs }
+          return { ...state, categories, filteredJobs }
+        }
+
+      case 'CLEAR-FILTER':
+        return {
+          categories: [],
+          filteredJobs: [...state.jobs],
+          jobs: state.jobs,
         }
 
       default:
@@ -50,7 +58,7 @@ function App() {
     }
   }
 
-  function filterJobs(categories) {
+  function filterJobs(categories, jobs) {
     const filteredjobs = jobs.filter((job) => {
       const jobCategories = [
         job.role,
@@ -75,20 +83,18 @@ function App() {
     return filteredjobs
   }
 
-  const removeCategoryFilters = () => setCategories([])
-
-  const removeCategory = (categoryToRemove) =>
-    setCategories((prevState) =>
-      prevState.filter((category) => category !== categoryToRemove)
-    )
+  const removeCategory = (categoryToRemove) => console.log('jah')
+  // setCategories((prevState) =>
+  //   prevState.filter((category) => category !== categoryToRemove)
+  // )
 
   return (
     <div>
       {state.categories.length > 0 && (
         <JobCategories
           categories={state.categories}
-          onRemoveCategory={removeCategory}
-          onClear={removeCategoryFilters}
+          //onRemoveCategory={removeCategory}
+          onClear={() => dispatch({ type: 'CLEAR-FILTER' })}
         />
       )}
 
