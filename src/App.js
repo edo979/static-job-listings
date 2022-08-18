@@ -28,23 +28,27 @@ function App() {
     fetchJobs()
   }, [])
 
+  const addCategory = (category) =>
+    dispatch({ type: 'ADD-CATEGORY', payload: category })
+
+  const removeCategory = (category) =>
+    dispatch({ type: 'REMOVE-CATEGORY', payload: category })
+
+  const clearFilter = () => dispatch({ type: 'CLEAR-FILTER' })
+
   return (
     <div>
       {state.categories.length > 0 && (
         <JobCategories
           categories={state.categories}
-          onRemoveCategory={(category) =>
-            dispatch({ type: 'REMOVE-CATEGORY', payload: category })
-          }
-          onClear={() => dispatch({ type: 'CLEAR-FILTER' })}
+          onRemoveCategory={(category) => removeCategory(category)}
+          onClear={clearFilter}
         />
       )}
 
       <JobList
         jobs={state.filteredJobs}
-        onAddCategory={(category) =>
-          dispatch({ type: 'ADD-CATEGORY', payload: category })
-        }
+        onAddCategory={(category) => addCategory(category)}
       />
     </div>
   )
