@@ -3,7 +3,8 @@ import JobList from './components/JobList'
 
 function App() {
   const [jobs, setJobs] = useState([]),
-    [categories, setCategories] = useState([])
+    [categories, setCategories] = useState([]),
+    [jobsFiltered, setFilteredJobs] = useState([])
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -16,6 +17,7 @@ function App() {
 
         const data = await res.json()
         setJobs(data)
+        setFilteredJobs(data)
 
         console.log('fetched')
       } catch (error) {
@@ -25,6 +27,31 @@ function App() {
 
     fetchJobs()
   }, [])
+
+  useEffect(() => {
+    const filteredjobs = jobs.filter((job) => {
+      const jobCategories = [
+        job.role,
+        job.level,
+        ...job.languages,
+        ...job.tools,
+      ]
+
+      let isIncludeCategory = true
+      for (let i = 0; i < categories.length; i++) {
+        if (jobCategories.includes(categories[i])) {
+          continue
+        } else {
+          isIncludeCategory = false
+          break
+        }
+      }
+
+      return isIncludeCategory
+    })
+
+    setFilteredJobs(filteredjobs)
+  }, [categories])
 
   const addCategory = (category) => {
     if (categories.includes(category)) {
@@ -41,7 +68,7 @@ function App() {
           <li key={category}>{category}</li>
         ))}
       </ul>
-      <JobList jobs={jobs} onAddCategory={addCategory} />
+      <JobList jobs={jobsFiltered} onAddCategory={addCategory} />
     </div>
   )
 }
