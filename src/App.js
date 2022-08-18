@@ -29,28 +29,32 @@ function App() {
   }, [])
 
   useEffect(() => {
-    const filteredjobs = jobs.filter((job) => {
-      const jobCategories = [
-        job.role,
-        job.level,
-        ...job.languages,
-        ...job.tools,
-      ]
+    if (categories) {
+      const filteredjobs = jobs.filter((job) => {
+        const jobCategories = [
+          job.role,
+          job.level,
+          ...job.languages,
+          ...job.tools,
+        ]
 
-      let isIncludeCategory = true
-      for (let i = 0; i < categories.length; i++) {
-        if (jobCategories.includes(categories[i])) {
-          continue
-        } else {
-          isIncludeCategory = false
-          break
+        let isIncludeCategory = true
+        for (let i = 0; i < categories.length; i++) {
+          if (jobCategories.includes(categories[i])) {
+            continue
+          } else {
+            isIncludeCategory = false
+            break
+          }
         }
-      }
 
-      return isIncludeCategory
-    })
+        return isIncludeCategory
+      })
 
-    setFilteredJobs(filteredjobs)
+      setFilteredJobs(filteredjobs)
+    } else {
+      setFilteredJobs([...jobs])
+    }
   }, [categories])
 
   const addCategory = (category) => {
@@ -61,13 +65,21 @@ function App() {
     }
   }
 
+  const removeCategoryFilters = () => setCategories([])
+
   return (
     <div>
-      <ul>
-        {categories.map((category) => (
-          <li key={category}>{category}</li>
-        ))}
-      </ul>
+      {categories.length > 0 && (
+        <div>
+          <ul>
+            {categories.map((category) => (
+              <li key={category}>{category}</li>
+            ))}
+          </ul>
+          <button onClick={removeCategoryFilters}>Clear</button>
+        </div>
+      )}
+
       <JobList jobs={jobsFiltered} onAddCategory={addCategory} />
     </div>
   )
