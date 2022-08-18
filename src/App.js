@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import JobCategories from './components/JobCategories'
 import JobList from './components/JobList'
 
 function App() {
@@ -69,25 +70,17 @@ function App() {
 
   const removeCategory = (categoryToRemove) =>
     setCategories((prevState) =>
-      prevState.filter((category) => category != categoryToRemove)
+      prevState.filter((category) => category !== categoryToRemove)
     )
 
   return (
     <div>
       {categories.length > 0 && (
-        <div>
-          <ul>
-            {categories.map((category) => (
-              <li key={category}>
-                <div>
-                  <span>{category}</span>
-                  <button onClick={() => removeCategory(category)}>X</button>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <button onClick={removeCategoryFilters}>Clear</button>
-        </div>
+        <JobCategories
+          categories={categories}
+          onRemoveCategory={removeCategory}
+          onClear={removeCategoryFilters}
+        />
       )}
 
       <JobList jobs={jobsFiltered} onAddCategory={addCategory} />
