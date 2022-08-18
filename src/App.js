@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useReducer, useState } from 'react'
 import JobCategories from './components/JobCategories'
 import JobList from './components/JobList'
 
 function App() {
   const [jobs, setJobs] = useState([]),
     [categories, setCategories] = useState([]),
-    [jobsFiltered, setFilteredJobs] = useState([])
+    [jobsFiltered, setFilteredJobs] = useState([]),
+    initialState = { categories: [], filteredJobs: [] }
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -58,13 +59,32 @@ function App() {
     }
   }, [categories])
 
-  const addCategory = (category) => {
-    if (categories.includes(category)) {
-      return
-    } else {
-      setCategories((prevState) => [...prevState, category])
+  const [state, dispatch] = useReducer(reducer, initialState)
+
+  function reducer(state, action) {
+    switch (action.type) {
+      case 'ADD-CATEGORY':
+        if (categories.includes(action.payload)) {
+          return state
+        } else {
+          return {
+            categories: [...state.categories, action.payload],
+            filteredJobs: state.filteredJobs,
+          }
+        }
+
+      default:
+        break
     }
   }
+
+  // const addCategory = (category) => {
+  //   if (categories.includes(category)) {
+  //     return
+  //   } else {
+  //     setCategories((prevState) => [...prevState, category])
+  //   }
+  // }
 
   const removeCategoryFilters = () => setCategories([])
 
@@ -75,15 +95,20 @@ function App() {
 
   return (
     <div>
-      {categories.length > 0 && (
+      {state.categories.length > 0 && (
         <JobCategories
-          categories={categories}
+          categories={state.categories}
           onRemoveCategory={removeCategory}
           onClear={removeCategoryFilters}
         />
       )}
 
-      <JobList jobs={jobsFiltered} onAddCategory={addCategory} />
+      <JobList
+        jobs={jobsFiltered}
+        onAddCategory={(category) =>
+          dispatch({ type: 'ADD-CATEGORY', payload: category })
+        }
+      />
     </div>
   )
 }
