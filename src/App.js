@@ -46,6 +46,13 @@ function App() {
           return { ...state, categories, filteredJobs }
         }
 
+      case 'REMOVE-CATEGORY':
+        const categories = state.categories.filter(
+            (category) => category !== action.payload
+          ),
+          filteredJobs = filterJobs(categories, state.jobs)
+        return { ...state, categories, filteredJobs }
+
       case 'CLEAR-FILTER':
         return {
           categories: [],
@@ -83,17 +90,14 @@ function App() {
     return filteredjobs
   }
 
-  const removeCategory = (categoryToRemove) => console.log('jah')
-  // setCategories((prevState) =>
-  //   prevState.filter((category) => category !== categoryToRemove)
-  // )
-
   return (
     <div>
       {state.categories.length > 0 && (
         <JobCategories
           categories={state.categories}
-          //onRemoveCategory={removeCategory}
+          onRemoveCategory={(category) =>
+            dispatch({ type: 'REMOVE-CATEGORY', payload: category })
+          }
           onClear={() => dispatch({ type: 'CLEAR-FILTER' })}
         />
       )}
