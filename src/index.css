@@ -124,6 +124,13 @@ body {
   background-color: var(--clr-neutral-800);
 }
 
+.main-container {
+  background-image: url('../public/images/bg-header-mobile.svg'),
+    linear-gradient(var(--clr-primary), var(--clr-primary));
+  background-repeat: no-repeat;
+  background-size: 100% 155px;
+}
+
 .container {
   border-radius: 5px;
 
@@ -143,4 +150,11 @@ body {
 
   color: var(--clr-primary);
   background-color: var(--clr-neutral-700);
+}
+
+@media (min-width: 50em) {
+  .main-container {
+    background-image: url('../public/images/bg-header-desktop.svg'),
+      linear-gradient(var(--clr-primary), var(--clr-primary));
+  }
 }
