@@ -1,6 +1,6 @@
 import './jobCategories.css'
 
-function JobCategories({ categories, onClear, onRemoveCategory }) {
+function JobCategories({ categories, dispatch }) {
   return (
     <div>
       <ul>
@@ -8,12 +8,21 @@ function JobCategories({ categories, onClear, onRemoveCategory }) {
           <li key={category}>
             <div>
               <span>{category}</span>
-              <button onClick={() => onRemoveCategory(category)}>X</button>
+              <button
+                onClick={() =>
+                  dispatch({
+                    type: 'REMOVE-CATEGORY',
+                    payload: category,
+                  })
+                }
+              >
+                X
+              </button>
             </div>
           </li>
         ))}
       </ul>
-      <button onClick={onClear}>Clear</button>
+      <button onClick={() => dispatch({ type: 'CLEAR-FILTER' })}>Clear</button>
     </div>
   )
 }

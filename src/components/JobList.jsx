@@ -1,11 +1,11 @@
 import JobItem from './JobItem'
 import './jobList.css'
 
-function JobList({ jobs, onAddCategory }) {
+function JobList({ jobs, dispatch }) {
   return (
     <ul className="job-list" aria-label="job listings">
       {jobs.map((job) => (
-        <JobItem data={job} key={job.id} onAddCategory={onAddCategory} />
+        <JobItem data={job} key={job.id} dispatch={dispatch} />
       ))}
     </ul>
   )

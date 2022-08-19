@@ -1,5 +1,5 @@
 import './jobItem.css'
-function JobItem({ data, onAddCategory }) {
+function JobItem({ data, dispatch }) {
   const {
       company,
       logo,
@@ -46,7 +46,9 @@ function JobItem({ data, onAddCategory }) {
               <li className="category-list_item" key={i} aria-label="category">
                 <button
                   className="btn btn-category"
-                  onClick={() => onAddCategory(category)}
+                  onClick={() =>
+                    dispatch({ type: 'ADD-CATEGORY', payload: category })
+                  }
                 >
                   {category}
                 </button>
