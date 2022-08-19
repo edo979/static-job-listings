@@ -58,12 +58,21 @@ h6 {
   isolation: isolate;
 }
 
-/* 
-  layout
+/*
+  COLORS
 */
 :root {
-  --mq-lg: 50em;
+  --clr-primary: hsl(180, 29%, 50%);
+  --clr-neutral-900: hsl(0, 0%, 100%);
+  --clr-neutral-800: hsl(180, 52%, 96%);
+  --clr-neutral-700: hsl(180, 31%, 95%);
+  --clr-neutral-500: hsl(180, 8%, 52%);
+  --clr-neutral-200: hsl(180, 14%, 20%);
 }
+
+/* 
+  LAYOUT
+*/
 
 .flex {
   display: flex;
@@ -85,9 +94,21 @@ h6 {
   padding-inline: 25px;
   padding-block-start: 30px;
   padding-block-end: 25px;
-  outline: 1px solid red;
 }
 
 .flow > * + * {
   margin-top: var(--flow-gap, 1rem);
+}
+
+/*
+  COMPONENTS
+*/
+body {
+  background-color: var(--clr-neutral-800);
+}
+
+.container {
+  border-radius: 5px;
+
+  background-color: var(--clr-neutral-900);
 }

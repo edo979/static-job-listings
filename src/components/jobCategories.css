@@ -5,3 +5,18 @@
 .categories {
   flex-wrap: wrap;
 }
+
+.categories_tablets {
+  background-color: var(--clr-neutral-700);
+}
+
+.categories_tablets button {
+  border: none;
+
+  color: white;
+  background-color: var(--clr-primary);
+}
+
+.categories_tablets button:hover {
+  background-color: black;
+}

@@ -5,20 +5,18 @@ function JobCategories({ categories, dispatch }) {
     <div className="job-categories | flex container">
       <ul className="categories | flex">
         {categories.map((category) => (
-          <li key={category}>
-            <div>
-              <span>{category}</span>
-              <button
-                onClick={() =>
-                  dispatch({
-                    type: 'REMOVE-CATEGORY',
-                    payload: category,
-                  })
-                }
-              >
-                X
-              </button>
-            </div>
+          <li key={category} className="categories_tablets">
+            <span>{category}</span>
+            <button
+              onClick={() =>
+                dispatch({
+                  type: 'REMOVE-CATEGORY',
+                  payload: category,
+                })
+              }
+            >
+              X
+            </button>
           </li>
         ))}
       </ul>
