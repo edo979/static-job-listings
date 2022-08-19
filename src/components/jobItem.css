@@ -7,6 +7,7 @@
   --f-direction: column;
   --f-align: start;
   --f-gap: 0;
+  min-width: max-content;
   margin-inline-end: auto;
 }
 
@@ -25,20 +26,4 @@
 
   border-top: 1px solid grey;
   padding-top: 1rem;
-}
-
-@media (min-width: 50em) {
-  .job {
-    --f-direction: row;
-    --f-justify: space-between;
-    --f-align: center;
-  }
-
-  .category-list {
-    --f-align: center;
-    --f-gap: 0.5rem;
-    margin-inline-start: auto;
-    border-top: none;
-    padding-top: 0;
-  }
 }

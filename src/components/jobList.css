@@ -12,17 +12,3 @@
 .flow {
   --flow-gap: 40px;
 }
-
-@media (min-width: 50em) {
-  .job-list {
-    margin-top: 125px;
-  }
-
-  .job-categories + .job-list {
-    margin-top: 40px;
-  }
-
-  .flow {
-    --flow-gap: 25px;
-  }
-}

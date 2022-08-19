@@ -152,9 +152,36 @@ body {
   background-color: var(--clr-neutral-700);
 }
 
-@media (min-width: 50em) {
+@media (min-width: 45em) {
   .main-container {
     background-image: url('../public/images/bg-header-desktop.svg'),
       linear-gradient(var(--clr-primary), var(--clr-primary));
+  }
+
+  .category-list {
+    --f-align: center;
+    --f-gap: 0.5rem;
+    --f-justify: start;
+    margin-inline-start: auto;
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .job {
+    --f-direction: row;
+    --f-justify: space-between;
+    --f-align: center;
+  }
+
+  .job-list {
+    margin-top: 125px;
+  }
+
+  .job-categories + .job-list {
+    margin-top: 40px;
+  }
+
+  .flow {
+    --flow-gap: 25px;
   }
 }
