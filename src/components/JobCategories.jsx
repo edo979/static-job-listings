@@ -15,7 +15,7 @@ function JobCategories({ categories, dispatch }) {
                 })
               }
             >
-              X
+              <img src="./images/icon-remove.svg" alt="" />
             </button>
           </li>
         ))}
