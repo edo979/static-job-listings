@@ -2,7 +2,11 @@
   list-style: none;
 
   padding: 0;
-  margin: 55px 0 0;
+  margin: 90px 0 0;
+}
+/* change margin top when category filter is visible */
+.job-categories + .job-list {
+  margin-top: 55px;
 }
 
 .flow {
@@ -11,7 +15,11 @@
 
 @media (min-width: 50em) {
   .job-list {
-    margin: 40px 0 0;
+    margin-top: 125px;
+  }
+
+  .job-categories + .job-list {
+    margin-top: 40px;
   }
 
   .flow {

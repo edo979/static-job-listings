@@ -76,7 +76,7 @@ h6 {
 .main-container {
   width: min(100%, 1440px);
   margin-inline: auto;
-  margin-block-start: 120px;
+  padding-block-start: 120px;
 }
 
 .container {
