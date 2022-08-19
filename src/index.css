@@ -61,10 +61,33 @@ h6 {
 /* 
   layout
 */
+:root {
+  --mq-lg: 50em;
+}
+
 .flex {
   display: flex;
   flex-direction: var(--f-direction, row);
   align-items: var(--f-align, center);
   justify-content: var(--f-justify, start);
   gap: var(--f-gap, 1rem);
+}
+
+.main-container {
+  width: min(100%, 1440px);
+  margin-inline: auto;
+  margin-block-start: 120px;
+}
+
+.container {
+  width: min(93.5%, 1110px);
+  margin-inline: auto;
+  padding-inline: 25px;
+  padding-block-start: 30px;
+  padding-block-end: 25px;
+  outline: 1px solid red;
+}
+
+.flow > * + * {
+  margin-top: var(--flow-gap, 1rem);
 }

@@ -2,5 +2,19 @@
   list-style: none;
 
   padding: 0;
-  margin: 0;
+  margin: 55px 0 0;
+}
+
+.flow {
+  --flow-gap: 40px;
+}
+
+@media (min-width: 50em) {
+  .job-list {
+    margin: 40px 0 0;
+  }
+
+  .flow {
+    --flow-gap: 25px;
+  }
 }

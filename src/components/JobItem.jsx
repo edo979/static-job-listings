@@ -16,7 +16,7 @@ function JobItem({ data, dispatch }) {
     categoryList = [role, level, ...languages, ...tools]
 
   return (
-    <li aria-label="job">
+    <li aria-label="job" className="container">
       <article className="job | flex" aria-label="job information">
         <aside className="job_logo" aria-hidden="true">
           <img src={logo} alt="" />

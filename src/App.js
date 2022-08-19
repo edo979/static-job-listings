@@ -29,7 +29,7 @@ function App() {
   }, [])
 
   return (
-    <div>
+    <div className="main-container">
       {state.categories.length > 0 && (
         <JobCategories categories={state.categories} dispatch={dispatch} />
       )}

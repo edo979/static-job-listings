@@ -3,7 +3,7 @@ import './jobList.css'
 
 function JobList({ jobs, dispatch }) {
   return (
-    <ul className="job-list" aria-label="job listings">
+    <ul className="job-list | flow" aria-label="job listings">
       {jobs.map((job) => (
         <JobItem data={job} key={job.id} dispatch={dispatch} />
       ))}

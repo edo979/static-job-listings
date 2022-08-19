@@ -1,8 +1,6 @@
 .job {
   --f-direction: column;
   --f-align: start;
-
-  margin-bottom: 3rem;
 }
 
 .job_info {
