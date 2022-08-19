@@ -1,0 +1,7 @@
+.job-categories {
+  --f-justify: space-between;
+}
+
+.categories {
+  flex-wrap: wrap;
+}

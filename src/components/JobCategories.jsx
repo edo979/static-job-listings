@@ -2,8 +2,8 @@ import './jobCategories.css'
 
 function JobCategories({ categories, dispatch }) {
   return (
-    <div>
-      <ul>
+    <div className="job-categories | flex">
+      <ul className="categories | flex">
         {categories.map((category) => (
           <li key={category}>
             <div>
