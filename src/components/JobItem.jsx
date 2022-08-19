@@ -49,7 +49,7 @@ function JobItem({ data, dispatch }) {
                 aria-label="category"
               >
                 <button
-                  className="btn btn-category"
+                  className="tablet"
                   onClick={() =>
                     dispatch({ type: 'ADD-CATEGORY', payload: category })
                   }

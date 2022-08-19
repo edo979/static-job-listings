@@ -5,7 +5,7 @@ function JobCategories({ categories, dispatch }) {
     <div className="job-categories | flex container">
       <ul className="categories | flex">
         {categories.map((category) => (
-          <li key={category} className="categories_tablets">
+          <li key={category} className="categories_tablets tablet">
             <span>{category}</span>
             <button
               onClick={() =>

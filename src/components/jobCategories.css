@@ -24,18 +24,13 @@
   justify-content: space-between;
   align-items: stretch;
   gap: 10px;
-  border-radius: 5px;
-  overflow: hidden;
-  background-color: var(--clr-neutral-700);
+  padding: 0 !important;
 }
 
 .categories_tablets span {
   align-self: center;
   margin-left: 8px;
   margin-top: 3px;
-  font-size: var(--fs-500);
-  font-weight: 700;
-  color: var(--clr-primary);
 }
 
 .categories_tablets button {
