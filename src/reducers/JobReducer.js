@@ -1,4 +1,4 @@
-export default (state, action) => {
+const JobReducer = (state, action) => {
   switch (action.type) {
     case 'INIT':
       return {
@@ -55,3 +55,5 @@ function filterJobs(categories, jobs) {
 
   return filteredjobs
 }
+
+export default JobReducer

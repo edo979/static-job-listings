@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from 'react'
+import { useEffect, useReducer } from 'react'
 import JobCategories from './components/JobCategories'
 import JobList from './components/JobList'
 import JobReducer from './reducers/JobReducer'

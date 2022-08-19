@@ -42,8 +42,12 @@ function JobItem({ data, dispatch }) {
 
         <section aria-label="click categories to filter">
           <ul className="category-list | flex" aria-label="categories">
-            {categoryList.map((category, i) => (
-              <li className="category-list_item" key={i} aria-label="category">
+            {categoryList.map((category) => (
+              <li
+                className="category-list_item"
+                key={category}
+                aria-label="category"
+              >
                 <button
                   className="btn btn-category"
                   onClick={() =>
