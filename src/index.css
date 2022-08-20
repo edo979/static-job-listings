@@ -105,6 +105,7 @@ html {
   width: min(100%, 1440px);
   margin-inline: auto;
   padding-block-start: 120px;
+  padding-block-end: 50px;
 }
 
 .container {
