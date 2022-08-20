@@ -15,8 +15,18 @@ function JobItem({ data, dispatch }) {
     } = data,
     categoryList = [role, level, ...languages, ...tools]
 
+  function getClases() {
+    let className = 'container'
+
+    if (featured) {
+      return className + ' border-left'
+    } else {
+      return className
+    }
+  }
+
   return (
-    <li aria-label="job" className="container">
+    <li aria-label="job" className={getClases()}>
       <article className="job | flex" aria-label="job information">
         <aside className="job_logo" aria-hidden="true">
           <img src={logo} alt="" />

@@ -68,7 +68,7 @@ h6 {
   --clr-neutral-800: hsl(180, 52%, 96%);
   --clr-neutral-700: hsl(180, 31%, 95%);
   --clr-neutral-500: hsl(180, 8%, 52%);
-  --clr-neutral-400: hsla(180, 8%, 52%, 0.5);
+  --clr-neutral-400: hsla(180, 8%, 52%, 0.6);
   --clr-neutral-200: hsl(180, 14%, 20%);
 }
 
@@ -168,6 +168,10 @@ body {
 
 .badge-dark {
   background-color: var(--clr-neutral-200);
+}
+
+.border-left {
+  border-left: 5px solid var(--clr-primary);
 }
 
 @media (min-width: 35em) {
