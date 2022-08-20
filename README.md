@@ -23,7 +23,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [live site](https://your-live-site-url.com)
+- Live Site URL: [live site](https://edo979.github.io/static-job-listings/)
 
 ## My process
 
