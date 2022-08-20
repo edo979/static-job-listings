@@ -81,7 +81,7 @@ h6 {
   --fs-300: 0.85rem;
   --fs-400: 1rem;
   --fs-500: 1.1rem;
-  --fs-600: 1.15rem;
+  --fs-600: 1.1rem;
 }
 
 html {
@@ -181,6 +181,11 @@ body {
 }
 
 @media (min-width: 45em) {
+  :root {
+    --fs-400: 1.2rem;
+    --fs-600: 1.5rem;
+  }
+
   .main-container {
     background-image: url('../public/images/bg-header-desktop.svg'),
       linear-gradient(var(--clr-primary), var(--clr-primary));
@@ -207,6 +212,25 @@ body {
 
   .job-categories + .job-list {
     margin-top: 40px;
+  }
+
+  .job_logo {
+    margin-top: 0;
+    width: 88px;
+    height: 88px;
+    flex-shrink: 0;
+  }
+
+  .job_footer {
+    --f-gap: 2rem;
+  }
+
+  .job_footer li:not(:first-child) {
+    padding-left: 0.25rem;
+  }
+
+  .job_categories {
+    width: auto;
   }
 
   .flow {
