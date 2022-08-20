@@ -15,10 +15,13 @@
 .job_footer {
   --f-direction: row;
   --f-align: center;
-  --f-gap: 1rem;
+}
+.job_header {
+  --f-gap: 0.5rem;
 }
 
 .job_header h2 {
+  margin-right: 1.25rem;
   font-size: var(--fs-400);
   color: var(--clr-primary);
 }
