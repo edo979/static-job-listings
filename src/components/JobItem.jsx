@@ -42,7 +42,10 @@ function JobItem({ data, dispatch }) {
 
             {featured && <span className="badge badge-dark">Featured</span>}
           </div>
-          <p className="job_position">{position}</p>
+
+          <a href="#" className="job_position">
+            {position}
+          </a>
 
           <ul className="job_footer | flex">
             <li>{postedAt}</li>

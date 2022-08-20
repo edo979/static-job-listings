@@ -47,6 +47,11 @@
   font-size: var(--fs-600);
   font-weight: 700;
   color: var(--clr-neutral-200);
+  text-decoration: none;
+}
+
+.job_position:is(:hover, :focus) {
+  color: var(--clr-primary);
 }
 
 .job_categories {
@@ -61,4 +66,8 @@
 
   border-top: 1px solid var(--clr-neutral-400);
   padding-top: 1rem;
+}
+
+.category-list_item button {
+  cursor: pointer;
 }
