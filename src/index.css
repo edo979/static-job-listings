@@ -152,6 +152,12 @@ body {
   background-color: var(--clr-neutral-700);
 }
 
+@media (min-width: 35em) {
+  .category-list {
+    --f-justify: center;
+  }
+}
+
 @media (min-width: 45em) {
   .main-container {
     background-image: url('../public/images/bg-header-desktop.svg'),

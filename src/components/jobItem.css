@@ -18,12 +18,16 @@
   --f-gap: 1rem;
 }
 
+.job_categories {
+  width: 100%;
+}
+
 .category-list {
   --f-direction: row;
   --f-align: center;
   --f-gap: 0.5rem;
   flex-wrap: wrap;
 
-  border-top: 1px solid grey;
+  border-top: 1px solid var(--clr-neutral-500);
   padding-top: 1rem;
 }

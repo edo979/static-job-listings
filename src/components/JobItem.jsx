@@ -40,7 +40,10 @@ function JobItem({ data, dispatch }) {
           </footer>
         </section>
 
-        <section aria-label="click categories to filter">
+        <section
+          className="job_categories"
+          aria-label="click categories to filter"
+        >
           <ul className="category-list | flex" aria-label="categories">
             {categoryList.map((category) => (
               <li
