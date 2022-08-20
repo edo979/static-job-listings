@@ -6,7 +6,7 @@
 .job_info {
   --f-direction: column;
   --f-align: start;
-  --f-gap: 0;
+  --f-gap: 0.35rem;
   min-width: max-content;
   margin-inline-end: auto;
 }
@@ -16,6 +16,27 @@
   --f-direction: row;
   --f-align: center;
   --f-gap: 1rem;
+}
+
+.job_header h2 {
+  font-size: var(--fs-400);
+  color: var(--clr-primary);
+}
+
+.job_footer {
+  --f-gap: 1.75rem;
+  list-style: disc;
+  color: var(--clr-neutral-500);
+}
+
+.job_footer li:first-child {
+  list-style: none;
+}
+
+.job_position {
+  font-size: var(--fs-500);
+  font-weight: 700;
+  color: var(--clr-neutral-200);
 }
 
 .job_categories {
@@ -28,6 +49,6 @@
   --f-gap: 0.5rem;
   flex-wrap: wrap;
 
-  border-top: 1px solid var(--clr-neutral-500);
+  border-top: 1px solid var(--clr-neutral-400);
   padding-top: 1rem;
 }

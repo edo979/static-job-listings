@@ -68,6 +68,7 @@ h6 {
   --clr-neutral-800: hsl(180, 52%, 96%);
   --clr-neutral-700: hsl(180, 31%, 95%);
   --clr-neutral-500: hsl(180, 8%, 52%);
+  --clr-neutral-400: hsla(180, 8%, 52%, 0.5);
   --clr-neutral-200: hsl(180, 14%, 20%);
 }
 
@@ -80,6 +81,7 @@ h6 {
   --fs-300: 0.85rem;
   --fs-400: 1rem;
   --fs-500: 1.1rem;
+  --fs-600: 1.15rem;
 }
 
 html {

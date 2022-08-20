@@ -26,18 +26,19 @@ function JobItem({ data, dispatch }) {
           className="job_info | flex"
           aria-label="job name, position, location"
         >
-          <header className="job_header | flex">
+          <div className="job_header | flex">
             <h2>{company}</h2>
             {data.new && <span className="badge badge-accent">New!</span>}
 
             {featured && <span className="badge badge-dark">Featured</span>}
-          </header>
-          <main className="job_position">{position}</main>
-          <footer className="job_footer | flex">
-            <p>{postedAt}</p>
-            <p>{contract}</p>
-            <p>{location}</p>
-          </footer>
+          </div>
+          <p className="job_position">{position}</p>
+
+          <ul className="job_footer | flex">
+            <li>{postedAt}</li>
+            <li>{contract}</li>
+            <li>{location}</li>
+          </ul>
         </section>
 
         <section
